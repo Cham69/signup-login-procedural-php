@@ -1,0 +1,15 @@
+<?php
+    include '../configuration/config.php';
+    
+    $sql = "SELECT username, name FROM Users";
+
+    $result = mysqli_query($conn, $sql);
+    $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    if(mysqli_num_rows($result)>0){
+        foreach($users as $user){
+            echo $user['name']. '<br>';
+        }
+    }
+    
+?>
